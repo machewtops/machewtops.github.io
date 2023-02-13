@@ -1,0 +1,50 @@
+<html>
+  <head>
+        <title>week 03 response: ways of seeing</title>
+        <link rel="stylesheet" href="style.css">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="image-container">
+      <img id="mainimage" src="fullframeimage.jpg" alt="The Wedding Feast at Cana - Paolo Veronese">
+      <p id="hover">
+        hover over image
+      </p>
+    </div>
+    <p id="meaning">
+        meaning can be changed with a simple crop.
+        <br><br>
+        a dinner with jesus could instead be about each individual wedding guest, 
+        or a grand landscape set in the sky with people staring at the birds.
+        <br><br>
+        the ability to reproduce and view art in new contexts allows us to see different
+        meanings, rather than the overarching image, and to craft a story out of reality.
+    </p>
+    <p id="hover">
+        hover over the image to see this meaning change for yourself. 
+    </p>
+    <img id="landscape" src="landscape.png" alt="Landscape crop of The Wedding Feast at Cana">
+    <img id="musician" src="musician.png" alt="Musician crop of The Wedding Feast at Cana">
+    <img id="passive" src="passive.png" alt="Passive crop of The Wedding Feast at Cana">
+    <img id="serving" src="serving.png" alt="Serving crop of The Wedding Feast at Cana">
+    
+  </body>
+  <script>
+    let imageContainer = document.querySelector("#image-container");
+    let image = document.querySelector("#mainimage");
+    
+    imageContainer.addEventListener("mousemove", (event) => {
+      let x = event.clientX - imageContainer.offsetLeft;
+      let y = event.clientY - imageContainer.offsetTop;
+      
+      let translateX = (((x / imageContainer.offsetWidth) * 100) - 50) * -1;
+      let translateY = (((y / imageContainer.offsetHeight) * 100) - 50) * -1;
+      
+      image.style.transform = `translate(${translateX}%, ${translateY}%) scale(2)`;
+    });
+    
+    imageContainer.addEventListener("mouseout", (event) => {
+      image.style.transform = `scale(1)`;
+    });
+  </script>
+</html>

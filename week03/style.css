@@ -1,0 +1,59 @@
+#image-container {
+     position: relative;
+     width: 50%;
+     height: 64%;
+     overflow: hidden;
+     float: right;
+}
+
+#meaning {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    text-align: left;
+}
+
+#hover {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    text-align: right;
+}
+        
+#mainimage {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+#landscape {
+    position: left;
+    width: 25%;
+    height: auto;
+}
+
+#musician {
+    position: center;
+    width: 24%;
+    height: auto;
+}
+
+#passive {
+    position: right;
+    width: 25%;
+    height: auto;
+}
+
+#serving{
+    position: right;
+    width: 25%;
+    height: auto;
+}
+        
+#image-container:hover #mainimage {
+    transform: scale(10);
+}
+        
+#image-container:hover #mainimage:hover {
+    transform: translate(-50%, -50%) scale(10);
+}
