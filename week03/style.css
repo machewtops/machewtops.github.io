@@ -16,10 +16,10 @@
 
 #nft {
     position: relative;
-    width: 40%;
+    width: 30%;
     height: auto;
     padding: 1%;
-    float: right
+    float: left
 }
 
 #meaning {
