@@ -6,6 +6,22 @@
      float: right;
 }
 
+#kusama {
+    position: relative;
+    width: 37%;
+    height: auto;
+    padding-right: 1%;
+    float: left;
+}
+
+#nft {
+    position: relative;
+    width: 40%;
+    height: auto;
+    padding: 1%;
+    float: right
+}
+
 #meaning {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
@@ -16,6 +32,24 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
     text-align: right;
+}
+
+#context {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    text-align: left;
+}
+
+#context2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    text-align: right;
+}
+
+#episode2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    text-align: left;
 }
         
 #mainimage {
