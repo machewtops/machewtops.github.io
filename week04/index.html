@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Basic document flow</title>
+
+    <style>
+      
+      body {
+        width: 500px;
+        height: 1400px;
+        margin: 0 auto;
+      }
+
+      p {
+        background: aqua;
+        border: 3px solid blue;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      span {
+        background: red;
+        border: 1px solid black;
+      }  
+
+      h1 {
+        position: fixed;
+        top: 0;
+        width: 500px;
+        margin-top: 0;
+        background: white;
+        color: darkslategray;
+        padding: 10px;
+      }
+
+      p:nth-of-type(1) {
+        margin-top: 60px;
+      }
+
+      .positioned {
+        position: sticky;
+        top: 30px;
+        left: 30px;
+      }
+
+      dt {
+        background-color: bisque;
+         color: darkslategray;
+        padding: 10px;
+        position: sticky;
+        top: 50px;
+        left: 0;
+        margin: 1em 0;
+      }
+
+      #imgwidth {
+        width: 400px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ways of Seeing</h1>
+
+<dl>
+  <dt>Camera & Painting</dt>
+  <dd><br></dd>
+  <dd><br></dd>
+  <dd><img id="imgwidth" src="https://machewtops.github.io/week03/fullframeimage.jpg"></dd>
+  <dd><img id="imgwidth" src="https://machewtops.github.io/week03/landscape.png"></dd>
+  <dd><img id="imgwidth" src="https://machewtops.github.io/week03/musician.png"></dd>
+  <dd><img id="imgwidth" src="https://machewtops.github.io/week03/passive.png"></dd>
+  <dd><img id="imgwidth" src="https://machewtops.github.io/week03/serving.png"></dd>
+  <dt>Women & Art</dt>
+  <dd><img id="imgwidth" src="https://www.publicbooks.org/wp-content/uploads/2015/10/d864424a-c69d-493c-a203-413b646c3c9b.jpg"></dd>
+  <dd><img id="imgwidth" src="https://render.fineartamerica.com/images/rendered/square-dynamic/small/images/artworkimages/mediumlarge/3/the-jade-necklace-exhibited-at-the-salon-de-de-la-societe-nationale-des-beaux-arts-of-1914-franc-rene-schutzenberger.jpg"></dd>
+  <dt>Painting & Possessions</dd>
+    <dd><img id="imgwidth" src="https://img.kingandmcgaw.com/imagecache/4/1/si-412876.jpg_ihcm-74.94_iwcm-100.00_fls-880605L.tif_fts-880605T.tif_mc-_fwcm-2.50_maxdim-1000_en_easyart___iar-1.jpg"></dd>
+    <dd><img id="imgwidth" src="https://www.york.ac.uk/media/historyofart/ccc/images/display2012/6.X41919%20-%20Collier%20-%20still%20life%20(PC%20London).jpg"></dd>
+    <dd><img id="imgwidth" src="https://www.penccil.com/files/U_71_355344412233_Still_life_with_a_Monkey_de_Heem.jpg"></dd>
+  <dt>Fine Arts & Commerce</dt>
+  <dd><img id="imgwidth" src="https://www.the-low-countries.com/uploads/62_Haecht-2893x2160.jpeg"></dd>
+  <dd><img id="imgwidth" src="https://img-9gag-fun.9cache.com/photo/aA3zQ39_460s.jpg"></dd>
+</dl>
+</html>
