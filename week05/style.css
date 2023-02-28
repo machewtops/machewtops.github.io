@@ -1,0 +1,92 @@
+body {
+    background-color: green;
+}
+
+main {
+    border: solid 10px pink;
+    background-color: gray;
+    border-radius: 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+
+}
+
+p {
+    border: solid 10px yellow;
+    border-radius: 2vw;
+    padding: 4vw;
+    margin: 30px;
+    color: pink;
+    display: flex;
+    justify-content: space-around;
+    font-family: "HigherPixels";
+    font-size: 60px;
+    text-align: justify;
+}
+
+#toes {
+  text-align: right;
+}
+
+#glitch {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#imgwidth {
+  width: 40%;
+  justify-content: space-around;
+}
+
+button {
+    margin: 100px;
+    background-color: pink;
+    color: yellow;
+    font-family: "HertzFriedeberg-ULTRA";
+    font-size: 24px;
+    border-radius: 4vw;
+    border: solid 10px yellow;
+    box-shadow: 0 9px #999;
+}
+
+button:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+      background-color: lightgreen;
+    }
+    main {
+      background-color: purple;
+    }
+  }
+
+/* 
+text shake animation inspired from 
+https://unused-css.com/blog/css-shake-animation/
+ */
+
+button:hover{
+  animation: shake 0.8s;
+}
+
+@keyframes shake{
+  0%{
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: rotate(5deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+  75%{
+    transform: rotate(-5deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
