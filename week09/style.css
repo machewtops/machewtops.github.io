@@ -1,0 +1,219 @@
+#door {
+    content: url('doorclosed.jpg');
+    size: 50%;
+    margin: auto;
+}
+
+#door:hover {
+    content: url('doorgif.gif');
+    size: 50%;
+    margin: auto;
+}
+
+.home {
+  background-color: #879ffd;
+  background-image: url("home/clouds.jpeg");
+  color: #093375;
+}
+
+#smframe {
+    width: 200px;
+    height: auto;
+    margin: auto;
+}
+
+#medframe {
+    width: 300px;
+    height: auto;
+    margin: auto;
+}
+
+.bodyone {
+  background-image: url('pug/pug.jpeg');
+  font-family: sans-serif;
+  padding: 20px;
+}
+  
+.h1one {
+  font-size: 90px;
+  font-family: 'Brush Script MT', cursive;
+  color:rebeccapurple;
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+}
+  
+.h2one { 
+  font-size: 45px;
+  text-align: center;
+  color: blue;
+  background-color: yellow;
+}
+  
+.para1 {
+  font-size: 25px;
+  color: yellow;
+  background-color: blue;
+}
+  
+.bodytwo {
+  background-image: url(https://media.discordapp.net/attachments/410969551409381379/794445302299623434/87f7d7ff9e7b7324577f503183b1b24d6cbc7cc8v2_00.png?width=1024&height=1024);
+  font-family: sans-serif;
+  padding: 20px;
+}
+  
+.h1two {
+  font-size: 90px;
+  color: red;
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+  background-color: orange;
+}
+  
+.ptwo {
+  font-size: 60px;
+  color: yellow;
+  text-align: center;
+  border-radius: 2000px;
+  background: url(https://media.tenor.com/zt8A1uJdny4AAAAC/backpack-kid-backpack-kid-dance.gif);
+  background-position: left top;
+  background-repeat: repeat;
+  }
+
+.dadbody {
+  background-image: url('dads/space.gif');
+  background-color: black;
+  font-family: 'Cormorant Garamond', serif, 'Cutive Mono';
+  padding: 20px;
+  color:rgb(58, 203, 203);
+  font-size: 20px;
+  text-align: center;
+}
+
+.dadtitle {
+  font-size: 50px;
+  font-family: cursive;
+  margin: auto;
+
+}
+
+.dadsubtitle{
+  font-size: 30px;
+  margin: auto;
+}
+
+.betty{
+  background-color: black;
+  margin: 10%;
+  text-align: center;
+}
+
+.mtitle{
+  text-align: left;
+  padding-left: 7%;
+  font-size: 60px;
+  font-family: 'Anton', sans-serif;
+  margin: auto;
+}
+
+.msubtitle{
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
+}
+
+.mbody{
+  padding: 20px;
+  font-size: 20px;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mtext{
+  padding: 20px;
+  margin-top: 20%;
+  margin-left: 20%;
+  margin-right: 30%;
+}
+
+.mreturn{
+  text-align: left;
+  padding-left: 7%;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#profile{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.mcontainer{
+  text-align: center;
+  border: 3px solid #fff;
+  padding: 20px;
+}
+
+.mdesc{
+  text-align: left;
+  width: 40%;
+  margin: auto;
+  margin-left: 5%;
+  float: left;
+  padding: 20px;
+}
+
+.msign{
+  text-align: left;
+  width: 40%;
+  margin: auto;
+  margin-left: 5%;
+  float: right;
+  padding: 20px;
+}
+
+#mimg{
+  width: 80%;
+  height:auto;
+  margin: auto;
+}
+
+#signbutton{
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Anton', sans-serif;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 40%;
+}
+
+#signbutton:active{
+  background-color: rgb(0, 0, 0);
+  color: #FFF;
+  border: 2px solid #000;
+}
+
+.waterbody {
+  background-image: url('aquarium/water.gif');
+  background-color: blue;
+  padding: 20px;
+  color:rgb(58, 203, 203);
+}
+
+#waterbubbles{
+  background-image: url('aquarium/bubbles.gif');
+}
+
+#waterimg{
+  width: 20%;
+  padding-left: 20%;
+  height: auto;
+  float: auto;
+}
