@@ -33,6 +33,10 @@ for (let i = 1; i <= 100; i++) {
       button.style.backgroundColor = "blue";
       buttonStates[i] = "blue";
     } 
+    else if (buttonStates[i] === "red" && clickCount % 2 === 0) {
+      button.style.backgroundColor = "black";
+      buttonStates[i] = "black";
+    } 
     else {
       button.style.backgroundColor = "white";
       buttonStates[i] = "white";
