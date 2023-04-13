@@ -72,6 +72,13 @@
     color: rgb(83, 29, 50)
 }
 
+#week11 {
+    text-align: left;
+    font-size: 24pt;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(83, 29, 50)
+}
+
 body {
     background-color: rgb(227, 214, 219);
     margin-right: 50%;
