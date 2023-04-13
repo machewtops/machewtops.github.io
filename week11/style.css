@@ -16,7 +16,7 @@ body, html {
   height: 100%;
   visibility: hidden;
   opacity: 0;
-  display: flex; /* Add this line back */
+  display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
