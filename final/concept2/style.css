@@ -1,0 +1,85 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  transition: opacity 0.3s, visibility 0.3s; 
+  font-family: Helvetica, sans-serif;
+}
+
+.headerWhiteBg {
+  /* this sticks it on top of the text below it, 
+  so when section 6 goes off frame it is readable. */
+  position: relative;
+  background-color: white;
+  color: black;
+  z-index: 3;
+}
+
+.whiteBg {
+  background-color: white;
+  color: black;
+  z-index: 1;
+}
+
+.blackBg {
+  background-color: black;
+  color: white;
+  z-index: 1;
+}
+
+.header1 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  text-align: left;
+  z-index: 4;
+  margin-left: 1%;
+}
+
+.section1 {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  text-align: left;
+  z-index: 2;
+}
+
+.section2 {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  text-align: left;
+  z-index: 2;
+}
+
+.section3 {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  text-align: left;
+  z-index: 2;
+}
+
+#imgsize {
+  width: 250px;
+  height: 250px;
+}
+
+#songselect {
+  margin: 2%;
+}
