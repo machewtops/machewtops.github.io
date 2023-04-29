@@ -66,6 +66,14 @@ body, html {
   z-index: 2;
 }
 
+#imgwidth {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  transition-duration: 0.3s; 
+  transition-timing-function: ease; 
+}
+
 #vegyn {
   width: 250px;
   height: 250px;
