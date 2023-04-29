@@ -2,6 +2,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: black;
 }
 
 .container {
@@ -22,19 +23,9 @@ body, html {
   font-family: Helvetica, sans-serif;
 }
 
-.headerWhiteBg {
-  /* this sticks it on top of the text below it, 
-  so when section 6 goes off frame it is readable. */
-  position: relative;
+#highlight {
   background-color: white;
   color: black;
-  z-index: 3;
-}
-
-.whiteBg {
-  background-color: white;
-  color: black;
-  z-index: 1;
 }
 
 .blackBg {
@@ -75,11 +66,78 @@ body, html {
   z-index: 2;
 }
 
-#imgsize {
+#vegyn {
   width: 250px;
   height: 250px;
+  position: relative;
+  -webkit-transition-duration: 0.3s; 
+  -webkit-transition-timing-function: ease; 
 }
 
-#songselect {
-  margin: 2%;
+#vegyn:hover { 
+  transform: scale(1.1); 
+}
+
+#exo {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  -webkit-transition-duration: 0.3s; 
+  -webkit-transition-timing-function: ease; 
+}
+
+#exo:hover { 
+  transform: scale(1.1); 
+}
+
+#takevan {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  -webkit-transition-duration: 0.3s; 
+  -webkit-transition-timing-function: ease; 
+}
+
+#takevan:hover { 
+  transform: scale(1.1); 
+}
+
+#loukeman {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  -webkit-transition-duration: 0.3s; 
+  -webkit-transition-timing-function: ease; 
+}
+
+#loukeman:hover { 
+  transform: scale(1.1); 
+}
+
+#lightleak {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  -webkit-transition-duration: 0.3s; 
+  -webkit-transition-timing-function: ease; 
+}
+
+#lightleak:hover { 
+  transform: scale(1.1); 
+}
+
+#machinegirl {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  -webkit-transition-duration: 0.3s; 
+  -webkit-transition-timing-function: ease; 
+}
+
+#machinegirl:hover { 
+  transform: scale(1.1); 
+}
+
+#select {
+  margin: 0.5%;
 }

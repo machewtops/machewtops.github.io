@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>susurration</title>
@@ -9,61 +11,85 @@
   <body>
     <main>
       
-      <div class="header1 whiteBg">
+      <div class="header1">
         <p>
-          susurration: the natural rhythm of the world
-          <br>
-          made by matt toups for web dev final
+          <mark id="highlight">
+            susurration: the natural rhythm of the world
+            <br>
+            made by matt toups for web dev final
+          </mark>
         </p>
       </div>
 
       <div class="section section1 blackBg">
         <p id="songselect">
-          <a href="/final/concept2/vegyn/">
-          <img id="imgsize" src="/final/concept2/vegyn/vegyn.jpg" alt="vegynalbumcover">
-          </a> 
+          <div id="select">
+            <a href="/final/concept2/vegyn/">
+              <img id="vegyn" src="/final/concept2/vegyn/vegyn.jpg" alt="vegynalbumcover">
+            </a> 
+          </div> 
           <br>
           harshities and niceness
           <br>
           by vegyn (easy)
         </p>
+        <br><br><br><br>
+        <p id="songselect">
+          <div id="select">
+            <a href="/final/concept2/exo/">
+              <img id="exo" src="/final/concept2/exo/minimix.jpg" alt="magdalenabayalbumcover">
+            </a> 
+          </div> 
+          <br>
+          exo
+          <br>
+          by magdalena bay (easy)
+        </p>
       </div>
-
       <div class="section section2 blackBg">
         <p id="songselect">
-          <a href="/final/concept2/takevan/">
-          <img id="imgsize" src="/final/concept2/takevan/takevan.jpg" alt="takevanalbumcover">
-          </a> 
+          <div id="select">
+            <a href="/final/concept2/takevan/">
+              <img id="takevan" src="/final/concept2/takevan/takevan.jpg" alt="takevanalbumcover">
+            </a>
+          </div> 
           <br>
           in my head
           <br>
           by take van (medium)
         </p>
+        <br><br><br><br>
         <p id="songselect">
-          <a href="/final/concept2/loukeman/">
-          <img id="imgsize" src="/final/concept2/loukeman/sd1.jpeg" alt="loukemanalbumcover">
-          </a> 
+          <div id="select">
+            <a href="/final/concept2/loukeman/">
+              <img id="loukeman" src="/final/concept2/loukeman/sd1.jpeg" alt="loukemanalbumcover">
+            </a>
+          </div>
           <br>
           took a turn
           <br>
           by louke man (medium)
         </p>
       </div>
-
       <div class="section section3 blackBg">
         <p id="songselect">
-          <a href="/final/concept2/lightleak/">
-          <img id="imgsize" src="/final/concept2/lightleak/graffiti.jpg" alt="graffitialbumcover">
-          </a> 
+          <div id="select">
+            <a href="/final/concept2/lightleak/">
+              <img id="lightleak" src="/final/concept2/lightleak/graffiti.jpg" alt="graffitialbumcover">
+            </a>
+          </div>
           <br>
           lightleak
           <br>
           by roy blair (hard)
         </p>
+        <br><br><br><br>
         <p id="songselect">
-          <a href="/final/concept2/machinegirl/">
-          <img id="imgsize" src="/final/concept2/machinegirl/machinegirl.png" alt="machinegirlalbumcover">
-          </a> 
+          <div id="select">
+            <a href="/final/concept2/machinegirl/">
+              <img id="machinegirl" src="/final/concept2/machinegirl/machinegirl.png" alt="machinegirlalbumcover">
+            </a> 
+          </div>
           <br>
           ATHOTH A GO!! GO!!!
           <br>
@@ -71,5 +97,6 @@
         </p>
       </div>
     </main>
+    <script src="sketch.js"></script>
   </body>
 </html>
