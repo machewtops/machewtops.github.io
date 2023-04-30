@@ -107,7 +107,7 @@ function keyPressed() {
       song.stop();
       state = gameState.MENU;
     } else if (state === gameState.END) {
-      window.location.href = '../index.html';
+      window.location.href = '../';
     }
   } else if (state === gameState.GAME) {
     const hitNoteIndex = notes.findIndex(note => {
