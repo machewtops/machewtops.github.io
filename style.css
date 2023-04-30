@@ -93,6 +93,13 @@
     color: rgb(83, 29, 50)
 }
 
+#concept3 {
+    text-align: center;
+    font-size: 24pt;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(83, 29, 50)
+}
+
 body {
     background-color: rgb(227, 214, 219);
     margin-right: 50%;

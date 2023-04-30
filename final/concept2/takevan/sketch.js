@@ -1,10 +1,8 @@
 // in next iteration, stop it from hitting multiple notes when arrow is held down. i tried implementing this tonight but it just kept breaking so i will havr to save for later but it is really pissing me off... 
 
-// rhythm game v2.3, adds a percentage that shows how far through the song you are. 
+// rhythm game v2.4, adds a song end menu, and fixes song sync issues. 
 
 // notes for stuff to add. 
-// show a score at the end of the song
-// show a progress bar, that shows how far through the song you are, this lets the user know how much longer they have to play through a song. maybe with a percentage?
 // make the arrows spread out a bit more, and color the 4 main arrows like the notes, though maybe a bit lighter/darker to differentiate?
 // use a really simple tonal song that only generates the exact notes intended, as a tutorial of sorts that can teach the user how to play if needed.
 // show score info at the end of the song, and maybe a restart button?
@@ -12,6 +10,7 @@
 const gameState = {
   MENU: 0,
   GAME: 1,
+  END: 2,
 };
 
 let state = gameState.MENU;
@@ -22,10 +21,13 @@ let lastNoteTime = 0;
 let gameStartTime;
 let score = 0;
 let activeArrows = [false, false, false, false]; 
+let noteTravelTime;
+let songDuration;
 
 function preload() {
   song = loadSound("inmyhead.wav", () => {
     songDuration = song.duration(); // get the duration of the song after it has been loaded
+    song.onended(songEnded)
   });
 } 
 
@@ -35,6 +37,7 @@ function setup() {
   rectMode(CENTER);
   textSize(32); // Move textSize() here
   fft = new p5.FFT(0.8, 32);
+  noteTravelTime = (height - 100) / 5; // 5 is the speed of the notes
 }
 
 function draw() {
@@ -45,6 +48,9 @@ function draw() {
     case gameState.GAME:
       drawGame();
       break;
+    case gameState.END:
+      drawEndSequence();
+      break;
   }
 }
 
@@ -53,6 +59,21 @@ function drawMenu() {
   textSize(32);
   fill(255);
   text("Press ENTER to start the game", width / 2, height / 2);
+}
+
+function drawEndSequence() {
+  background(0);
+  fill(255);
+  textSize(32);
+  text("In My Head by Take Van", width / 2, height / 2 - 40);
+  text("Score: " + score, width / 2, height / 2);
+  textSize(24);
+  text("Press ENTER to go back to Menu", width / 2, height / 2 + 40);
+}
+
+
+function songEnded() {
+  state = gameState.END;
 }
 
 function keyPressed() {
@@ -80,6 +101,8 @@ function keyPressed() {
     } else if (state === gameState.GAME) {
       song.stop();
       state = gameState.MENU;
+    } else if (state === gameState.END) {
+      window.location.href = '../index.html';
     }
   } else if (state === gameState.GAME) {
     const hitNoteIndex = notes.findIndex(note => {
@@ -96,6 +119,7 @@ function keyPressed() {
     }
   }
 }
+
 
 function drawScore() {
   fill(255);
@@ -139,7 +163,7 @@ function drawGame() {
 }
 
 function generateNotes() {
-  let currentTime = millis() - gameStartTime;
+  let currentTime = millis() - gameStartTime - noteTravelTime;
 
   if (currentTime - lastNoteTime >= 200) {
     let bass = fft.getEnergy("bass");
