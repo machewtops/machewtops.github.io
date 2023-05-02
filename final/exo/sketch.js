@@ -25,7 +25,7 @@ let noteTravelTime;
 let songDuration;
 
 function preload() {
-  song = loadSound("EXO.mp3", () => {
+  song = loadSound("exo.mp3", () => {
     songDuration = song.duration(); // get the duration of the song after it has been loaded
     song.onended(songEnded)
   });
