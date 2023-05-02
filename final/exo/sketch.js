@@ -1,6 +1,6 @@
 // in next iteration, stop it from hitting multiple notes when arrow is held down. i tried implementing this tonight but it just kept breaking so i will havr to save for later but it is really pissing me off... 
 
-// rhythm game v2.4, adds a song end menu, and fixes song sync issues. 
+// rhythm game v2.5, adds an audiovisualizer (full update path of different versions is archived on my p5.js web editor account, more monumental improvements in github)
 
 // notes for stuff to add. 
 // make the arrows spread out a bit more, and color the 4 main arrows like the notes, though maybe a bit lighter/darker to differentiate?
@@ -25,7 +25,7 @@ let noteTravelTime;
 let songDuration;
 
 function preload() {
-  song = loadSound("exo.mp3", () => {
+  song = loadSound("EXO.mp3", () => {
     songDuration = song.duration(); // get the duration of the song after it has been loaded
     song.onended(songEnded)
   });
@@ -139,6 +139,7 @@ function drawPercentage() { // function to draw the percentage text
   percentage = percentage.toFixed(0); // round the percentage to the nearest integer
   text(`${percentage}%`, width / 2, height - 25); // display the percentage text centered at the bottom of the canvas
 }
+
 function drawGame() {
   background(0);
   drawCircularVisualizer();
@@ -205,6 +206,48 @@ function drawCircularVisualizer() {
   }
   pop();
 }
+
+/* earlier version of circularVisualizer
+function drawCircularVisualizer() {
+  let spectrum = fft.analyze();
+  let radius = min(width, height) / 3;
+
+  push();
+  translate(width / 2, height / 2);
+  rotate(frameCount * 0.01); // Rotation speed
+
+  beginShape();
+  for (let i = 0; i < spectrum.length; i++) {
+    let angle = map(i, 0, spectrum.length, 0, TWO_PI);
+    let r = map(spectrum[i], 0, 255, radius, radius * 1.5);
+    let x = r * cos(angle);
+    let y = r * sin(angle);
+
+    stroke(255, 255, 255, 100);
+    strokeWeight(2);
+    noFill();
+    vertex(x, y);
+  }
+  endShape(CLOSE);
+  pop();
+}
+*/
+
+/* artifact from different style of visualizer. straight line instead of circle. 
+function drawVisualizer() {
+  let waveform = fft.waveform();
+  noFill();
+  beginShape();
+  stroke(255, 50); // Adjust the color and transparency as needed
+  strokeWeight(2);
+  for (let i = 0; i < waveform.length; i++) {
+    let x = map(i, 0, waveform.length, 0, width);
+    let y = map(waveform[i], -1, 1, height / 4, 3 * height / 4);
+    vertex(x, y);
+  }
+  endShape();
+}
+*/
 
 function generateNotes() {
   let currentTime = millis() - gameStartTime - noteTravelTime;
