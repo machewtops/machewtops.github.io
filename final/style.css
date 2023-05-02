@@ -174,3 +174,17 @@ body, html {
   transition-duration: 0.3s;
   transition-timing-function: ease;
 }
+
+#draingang{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#sematary{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease; 
+}

@@ -13,6 +13,8 @@ function preload() {
   audioFiles["thegardenshort.mp3"] = loadSound("thegardenshort.mp3");
   audioFiles["mitskishort.mp3"] = loadSound("mitskishort.mp3");
   audioFiles["silkrhodesshort.mp3"] = loadSound("silkrhodesshort.mp3");
+  audioFiles["draingangshort.mp3"] = loadSound("draingangshort.mp3");
+  audioFiles["semataryshort.mp3"] = loadSound("semataryshort.mp3");
 }
 
 function setup() {
@@ -28,6 +30,8 @@ function setup() {
   const thegardenImage = document.querySelectorAll("#thegarden");
   const mitskiImage = document.querySelectorAll("#mitski");
   const silkrhodesImage = document.querySelectorAll("#silkrhodes");
+  const draingangImage = document.querySelectorAll("#draingang");
+  const semataryImage = document.querySelectorAll("#sematary");
 
   vegynImage.forEach((image) => {
     image.addEventListener("mouseover", () => {
@@ -158,6 +162,28 @@ function setup() {
 
     image.addEventListener("mouseout", () => {
       audioFiles["silkrhodesshort.mp3"].stop();
+    });
+  });
+
+  draingangImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["draingangshort.mp3"].play();
+      audioFiles["draingangshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["draingangshort.mp3"].stop();
+    });
+  });
+
+  semataryImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["semataryshort.mp3"].play();
+      audioFiles["semataryshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["semataryshort.mp3"].stop();
     });
   });
 }
