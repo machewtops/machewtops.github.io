@@ -1,0 +1,176 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: black;
+  font-family: Helvetica, sans-serif;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  transition: opacity 0.3s, visibility 0.3s; 
+}
+
+.documentation {
+  font-family: Helvetica, sans-serif;
+  font-size: 24px;
+  text-align: left;
+  color: white;
+  margin: 10%;
+}
+
+#documentationimg {
+  width: 30%;
+  height: auto;
+}
+
+#highlight {
+  background-color: white;
+  color: black;
+}
+
+.header1 {
+  font-size: 32px;
+  text-align: left;
+  z-index: 4;
+  margin-left: 1%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 20px;
+  margin: 20px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.song-text {
+  font-family: Helvetica, sans-serif;
+  font-size: 24px;
+  text-align: right;
+  color: white;
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+.song-text.right {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.album-cover {
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.album-cover:hover {
+  transform: scale(1.1);
+}
+
+#vegyn {
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#exo {
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#takevan {
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#loukeman {
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#lightleak {
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#machinegirl{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#phoebe{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#thegarden{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#mgna{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#methmath{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#mitski{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+#silkrhodes{
+  width: 250px;
+  height: 250px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
