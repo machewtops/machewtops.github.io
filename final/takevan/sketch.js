@@ -33,7 +33,7 @@ function preload() {
 } 
 
 function setup() {
-  createCanvas(500, 850);
+  createCanvas(500, windowHeight);
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
   textSize(32); // Move textSize() here

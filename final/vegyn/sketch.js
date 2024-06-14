@@ -30,7 +30,7 @@ function preload() {
 } 
 
 function setup() {
-  createCanvas(500, 850);
+  createCanvas(500, windowHeight);
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
   textSize(32); // Move textSize() here
@@ -317,100 +317,16 @@ function drawArrows() {
   }
 }
 
-class Arrow { // class for the arrows that fall down the screen
-  constructor(direction) {
-    this.direction = direction;
-    this.y = 0;
-    this.speed = 5;
-    this.pressed = false;
-    const arrowSize = 60;
-    const xOffset = width / 2 - 1.5 * arrowSize;
-
-    switch (this.direction) {
-      case "LEFT":
-        this.x = xOffset;
-        this.arrowIndex = 0;
-        break;
-      case "UP":
-        this.x = xOffset + arrowSize;
-        this.arrowIndex = 1;
-        break;
-      case "DOWN":
-        this.x = xOffset + 2 * arrowSize;
-        this.arrowIndex = 2;
-        break;
-      case "RIGHT":
-        this.x = xOffset + 3 * arrowSize;
-        this.arrowIndex = 3;
-        break;
-    }
-  }
-
-  update() {
-    this.y += this.speed;
-  }
-
-  display() {
-    let rotation;
-    let colorVal = color(0);
-
-    switch (this.direction) {
-      case "LEFT":
-        rotation = 0;
-        colorVal = color(255, 0, 0);
-        break;
-      case "UP":
-        rotation = 1;
-        colorVal = color(0, 255, 0);
-        break;
-      case "DOWN":
-        rotation = 2;
-        colorVal = color(0, 0, 255);
-        break;
-      case "RIGHT":
-        rotation = 3;
-        colorVal = color(255, 255, 0);
-        break;
-    }
-
-    push();
-    translate(this.x, this.y);
-    drawArrow(0, 0, rotation, colorVal);
-    pop();
-  }
-  
-  offScreen() {
-    return this.y > height;
-  }
-  
-  removeIfHit() {
-    if (this.y >= height - 150 && this.y <= height - 50 && activeArrows[this.arrowIndex] && !this.pressed) {
-      this.pressed = true;
-      return true;
-    }
-    return false;
-  }
-
-  missed() {
-    return this.y > height - 50 && !this.pressed;
-  }
-}
-
-
-function keyReleased() {
-  let arrowIndex;
-
-  if (keyCode === LEFT_ARROW) {
-    arrowIndex = 0;
-  } else if (keyCode === UP_ARROW) {
-    arrowIndex = 1;
-  } else if (keyCode === DOWN_ARROW) {
-    arrowIndex = 2;
-  } else if (keyCode === RIGHT_ARROW) {
-    arrowIndex = 3;
-  }
-
-  if (arrowIndex !== undefined) {
-    activeArrows[arrowIndex] = false;
-  }
+function drawArrow(x, y, rotation, colorVal) {
+  push();
+  translate(x, y);
+  rotate(rotation * PI / 2);
+  fill(colorVal);
+  noStroke();
+  triangle(-20, 20, 0, -20, 20, 20);
+  stroke(0);
+  strokeWeight(5);
+  line(-10, 15, 0, -15);
+  line(0, -15, 10, 15);
+  pop();
 }
