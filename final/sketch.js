@@ -1,48 +1,189 @@
 let audioFiles = {};
 
-const tracks = [
-  { id: 'vegyn', file: 'vegynshort.mp3' },
-  { id: 'exo', file: 'exoshort.mp3' },
-  { id: 'lightleak', file: 'lightleakshort.mp3' },
-  { id: 'loukeman', file: 'tookaturnshort.mp3' },
-  { id: 'takevan', file: 'inmyheadshort.mp3' },
-  { id: 'machinegirl', file: 'athothagogoshort.mp3' },
-  { id: 'phoebe', file: 'phoebeshort.mp3' },
-  { id: 'methmath', file: 'methmathshort.mp3' },
-  { id: 'mgna', file: 'mgnashort.mp3' },
-  { id: 'thegarden', file: 'thegardenshort.mp3' },
-  { id: 'mitski', file: 'mitskishort.mp3' },
-  { id: 'silkrhodes', file: 'silkrhodesshort.mp3' },
-  { id: 'draingang', file: 'draingangshort.mp3' },
-  { id: 'sematary', file: 'semataryshort.mp3' }
-];
-
 function preload() {
-  tracks.forEach(t => {
-    audioFiles[t.file] = loadSound(t.file);
-  });
+  audioFiles["vegynshort.mp3"] = loadSound("vegynshort.mp3");
+  audioFiles["exoshort.mp3"] = loadSound("exoshort.mp3");
+  audioFiles["lightleakshort.mp3"] = loadSound("lightleakshort.mp3");
+  audioFiles["tookaturnshort.mp3"] = loadSound("tookaturnshort.mp3");
+  audioFiles["inmyheadshort.mp3"] = loadSound("inmyheadshort.mp3");
+  audioFiles["athothagogoshort.mp3"] = loadSound("athothagogoshort.mp3");
+  audioFiles["phoebeshort.mp3"] = loadSound("phoebeshort.mp3");
+  audioFiles["methmathshort.mp3"] = loadSound("methmathshort.mp3");
+  audioFiles["mgnashort.mp3"] = loadSound("mgnashort.mp3");
+  audioFiles["thegardenshort.mp3"] = loadSound("thegardenshort.mp3");
+  audioFiles["mitskishort.mp3"] = loadSound("mitskishort.mp3");
+  audioFiles["silkrhodesshort.mp3"] = loadSound("silkrhodesshort.mp3");
+  audioFiles["draingangshort.mp3"] = loadSound("draingangshort.mp3");
+  audioFiles["semataryshort.mp3"] = loadSound("semataryshort.mp3");
 }
 
 function setup() {
-  tracks.forEach(({ id, file }) => {
-    document.querySelectorAll(`#${id}`).forEach(image => {
-      const play = () => {
-        const snd = audioFiles[file];
-        if (!snd.isPlaying()) {
-          snd.loop();
-        }
-      };
+  const vegynImage = document.querySelectorAll("#vegyn");
+  const exoImage = document.querySelectorAll("#exo");
+  const lightleakImage = document.querySelectorAll("#lightleak");
+  const loukemanImage = document.querySelectorAll("#loukeman");
+  const takevanImage = document.querySelectorAll("#takevan");
+  const machinegirlImage = document.querySelectorAll("#machinegirl");
+  const phoebeImage = document.querySelectorAll("#phoebe");
+  const methmathImage = document.querySelectorAll("#methmath");
+  const mgnaImage = document.querySelectorAll("#mgna");
+  const thegardenImage = document.querySelectorAll("#thegarden");
+  const mitskiImage = document.querySelectorAll("#mitski");
+  const silkrhodesImage = document.querySelectorAll("#silkrhodes");
+  const draingangImage = document.querySelectorAll("#draingang");
+  const semataryImage = document.querySelectorAll("#sematary");
 
-      const stop = () => {
-        const snd = audioFiles[file];
-        if (snd.isPlaying()) {
-          snd.stop();
-        }
-      };
+  vegynImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["vegynshort.mp3"].play();
+      audioFiles["vegynshort.mp3"].loop();
+    });
 
-      ['mouseover', 'touchstart'].forEach(evt => image.addEventListener(evt, play));
-      ['mouseout', 'touchend', 'touchcancel'].forEach(evt => image.addEventListener(evt, stop));
+    image.addEventListener("mouseout", () => {
+      audioFiles["vegynshort.mp3"].stop();
+    });
+  });
+
+  exoImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["exoshort.mp3"].play();
+      audioFiles["exoshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["exoshort.mp3"].stop();
+    });
+  });
+
+  lightleakImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["lightleakshort.mp3"].play();
+      audioFiles["lightleakshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["lightleakshort.mp3"].stop();
+    });
+  });
+
+  loukemanImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["tookaturnshort.mp3"].play();
+      audioFiles["tookaturnshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["tookaturnshort.mp3"].stop();
+    });
+  });
+
+  takevanImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["inmyheadshort.mp3"].play();
+      audioFiles["inmyheadshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["inmyheadshort.mp3"].stop();
+    });
+  });
+
+  machinegirlImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["athothagogoshort.mp3"].play();
+      audioFiles["athothagogoshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["athothagogoshort.mp3"].stop();
+    });
+  });
+
+  phoebeImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["phoebeshort.mp3"].play();
+      audioFiles["phoebeshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["phoebeshort.mp3"].stop();
+    });
+  });
+
+  methmathImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["methmathshort.mp3"].play();
+      audioFiles["methmathshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["methmathshort.mp3"].stop();
+    });
+  });
+
+  mgnaImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["mgnashort.mp3"].play();
+      audioFiles["mgnashort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["mgnashort.mp3"].stop();
+    });
+  });
+
+  thegardenImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["thegardenshort.mp3"].play();
+      audioFiles["thegardenshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["thegardenshort.mp3"].stop();
+    });
+  });
+
+  mitskiImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["mitskishort.mp3"].play();
+      audioFiles["mitskishort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["mitskishort.mp3"].stop();
+    });
+  });
+
+  silkrhodesImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["silkrhodesshort.mp3"].play();
+      audioFiles["silkrhodesshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["silkrhodesshort.mp3"].stop();
+    });
+  });
+
+  draingangImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["draingangshort.mp3"].play();
+      audioFiles["draingangshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["draingangshort.mp3"].stop();
+    });
+  });
+
+  semataryImage.forEach((image) => {
+    image.addEventListener("mouseover", () => {
+      audioFiles["semataryshort.mp3"].play();
+      audioFiles["semataryshort.mp3"].loop();
+    });
+
+    image.addEventListener("mouseout", () => {
+      audioFiles["semataryshort.mp3"].stop();
     });
   });
 }
-
