@@ -77,21 +77,35 @@ function songEnded() {
   state = gameState.END;
 }
 
-function keyPressed() {
-  let arrowIndex;
+function handleArrowPress(arrowIndex) {
+  if (arrowIndex === undefined) return;
 
-  if (keyCode === LEFT_ARROW) {
-    arrowIndex = 0;
-  } else if (keyCode === UP_ARROW) {
-    arrowIndex = 1;
-  } else if (keyCode === DOWN_ARROW) {
-    arrowIndex = 2;
-  } else if (keyCode === RIGHT_ARROW) {
-    arrowIndex = 3;
+  activeArrows[arrowIndex] = true;
+
+  if (state === gameState.GAME) {
+    const hitNoteIndex = notes.findIndex(note => {
+      return note.arrowIndex === arrowIndex && note.y >= height - 150 && note.y <= height - 50;
+    });
+
+    if (hitNoteIndex !== -1 && !notes[hitNoteIndex].pressed) {
+      score += 100;
+      notes[hitNoteIndex].pressed = true;
+      notes.splice(hitNoteIndex, 1);
+    } else {
+      score -= 50;
+    }
   }
+}
 
-  if (arrowIndex !== undefined) {
-    activeArrows[arrowIndex] = true;
+function keyPressed() {
+  if (keyCode === LEFT_ARROW) {
+    handleArrowPress(0);
+  } else if (keyCode === UP_ARROW) {
+    handleArrowPress(1);
+  } else if (keyCode === DOWN_ARROW) {
+    handleArrowPress(2);
+  } else if (keyCode === RIGHT_ARROW) {
+    handleArrowPress(3);
   }
 
   if (keyCode === 13) {
@@ -105,18 +119,42 @@ function keyPressed() {
     } else if (state === gameState.END) {
       window.location.href = '../';
     }
-  } else if (state === gameState.GAME) {
-    const hitNoteIndex = notes.findIndex(note => {
-      return note.arrowIndex === arrowIndex && note.y >= height - 150 && note.y <= height - 50;
-    });
+  }
+}
 
-    if (hitNoteIndex !== -1 && !notes[hitNoteIndex].pressed) {
-      score += 100;
-      notes[hitNoteIndex].pressed = true;
-      notes.splice(hitNoteIndex, 1);
-    } else if (arrowIndex !== undefined && (hitNoteIndex === -1 || (hitNoteIndex !== -1 && notes[hitNoteIndex].pressed))) {
-      // Deduct points or handle misses as needed
-      score -= 50;
+function keyReleased() {
+  if (keyCode === LEFT_ARROW) activeArrows[0] = false;
+  else if (keyCode === UP_ARROW) activeArrows[1] = false;
+  else if (keyCode === DOWN_ARROW) activeArrows[2] = false;
+  else if (keyCode === RIGHT_ARROW) activeArrows[3] = false;
+}
+
+function touchStarted() {
+  if (state === gameState.GAME) {
+    handleTouchInput();
+  }
+  return false;
+}
+
+function touchEnded() {
+  activeArrows = [false, false, false, false];
+  return false;
+}
+
+function handleTouchInput() {
+  const arrowSize = 60;
+  const yPos = height - 100;
+  const xOffset = width / 2 - 1.5 * arrowSize;
+
+  for (let t of touches) {
+    for (let i = 0; i < 4; i++) {
+      let x = xOffset + i * arrowSize;
+      if (
+        t.x > x - arrowSize / 2 && t.x < x + arrowSize / 2 &&
+        t.y > yPos - arrowSize / 2 && t.y < yPos + arrowSize / 2
+      ) {
+        handleArrowPress(i);
+      }
     }
   }
 }
@@ -239,69 +277,6 @@ function generateNotes() {
     }
 
     lastNoteTime = currentTime;
-  }
-}
-
-function drawArrow(x, y, rotation, colorVal) {
-  // left
-  if (rotation == 0) {
-    fill(colorVal)
-    rect(x, y, 55, 25);
-    triangle(x - 55, y, x - 20, y - 34, x - 20, y + 34);
-    rectMode(CENTER);
-    noStroke();
-    fill(255);
-    rect(x, y, 50, 20);
-    triangle(x - 52, y, x - 22, y - 29, x - 22, y + 29);
-    // creates inner black arrow
-    fill(colorVal);
-    rect(x - 5, y, 50, 8)
-    triangle(x - 42, y, x - 28, y + 15, x - 28, y - 15);
-  }
-  // up
-  else if (rotation == 1) {
-    fill(colorVal)
-    rect(x, y, 25, 55);
-    triangle(x - 35, y - 18, x, y - 53, x + 35, y - 18);
-    rectMode(CENTER);
-    noStroke(); 
-    fill(255);
-    rect(x, y, 20, 50);
-    triangle(x - 30, y - 20, x, y - 50, x + 30, y - 20);
-    // creates inner black arrow that is consistent between arrows
-    fill(colorVal);
-    rect(x, y - 5, 8, 50);
-    triangle(x - 15, y - 25, x, y - 40, x + 15, y - 25); 
-  }
-  // down
-  else if (rotation == 2) {
-    fill(colorVal)
-    rect(x, y, 25, 55);
-    triangle(x - 35, y + 18, x, y + 53, x + 35, y + 18);
-    rectMode(CENTER);
-    noStroke(); 
-    fill(255);
-    rect(x, y, 20, 50);
-    triangle(x - 30, y + 20, x, y + 50, x + 30, y + 20);
-    // creates inner black arrow that is consistent between arrows
-    fill(colorVal);
-    rect(x, y + 5, 8, 50);
-    triangle(x - 15, y + 25, x, y + 40, x + 15, y + 25); 
-  }
-  // right
-  else if (rotation == 3) {
-    fill(colorVal)
-    rect(x, y, 55, 25);
-    triangle(x + 55, y, x + 20, y - 34, x + 20, y + 34);
-    rectMode(CENTER);
-    noStroke();
-    fill(255);
-    rect(x, y, 50, 20);
-    triangle(x + 52, y, x + 22, y - 29, x + 22, y + 29);
-    // creates inner black arrow
-    fill(colorVal);
-    rect(x + 5, y, 50, 8)
-    triangle(x + 42, y, x + 28, y + 15, x + 28, y - 15);
   }
 }
 
