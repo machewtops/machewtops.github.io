@@ -23,6 +23,11 @@ let score = 0;
 let activeArrows = [false, false, false, false]; 
 let noteTravelTime;
 let songDuration;
+let combo = 0;
+let maxCombo = 0;
+let totalNotes = 0;
+let hitNotes = 0;
+let feedbackMessages = [];
 
 function preload() {
   song = loadSound("tookaturn.mp3", () => {
@@ -73,7 +78,9 @@ function drawEndSequence() {
   text("by Louke Man", width / 2, height / 2 - 10);
   text("Score: " + score, width / 2, height / 2 + 45);
   textSize(24);
-  text("Press ENTER to go back to Menu", width / 2, height / 2 + 100);
+  let accuracy = totalNotes > 0 ? ((hitNotes / totalNotes) * 100).toFixed(1) : "0.0";
+  text(`Accuracy: ${accuracy}% | Max Combo: ${maxCombo}x`, width / 2, height / 2 + 95);
+  text("Press ENTER to go back to Menu", width / 2, height / 2 + 140);
 }
 
 
@@ -115,12 +122,20 @@ function keyPressed() {
     });
 
     if (hitNoteIndex !== -1 && !notes[hitNoteIndex].pressed) {
+      let hitNote = notes[hitNoteIndex];
       score += 100;
+      combo++;
+      if (combo > maxCombo) maxCombo = combo;
+      hitNotes++;
+      totalNotes++;
+      feedbackMessages.push({text: "+100", x: hitNote.x, y: height - 100, alpha: 255, col: [100, 255, 100]});
       notes[hitNoteIndex].pressed = true;
       notes.splice(hitNoteIndex, 1);
     } else if (arrowIndex !== undefined && (hitNoteIndex === -1 || (hitNoteIndex !== -1 && notes[hitNoteIndex].pressed))) {
-      // Deduct points or handle misses as needed
       score -= 50;
+      combo = 0;
+      totalNotes++;
+      feedbackMessages.push({text: "-50", x: width/2, y: height - 150, alpha: 255, col: [255, 80, 80]});
     }
   }
 }
@@ -140,13 +155,39 @@ function drawPercentage() { // function to draw the percentage text
   text(`${percentage}%`, width / 2, height - 25); // display the percentage text centered at the bottom of the canvas
 }
 
+function drawCombo() {
+  if (combo > 1) {
+    fill(255, 220, 0);
+    noStroke();
+    textSize(24);
+    text(`${combo}x COMBO`, width / 2, 80);
+  }
+}
+
+function drawFeedback() {
+  noStroke();
+  textSize(28);
+  for (let i = feedbackMessages.length - 1; i >= 0; i--) {
+    let msg = feedbackMessages[i];
+    fill(msg.col[0], msg.col[1], msg.col[2], msg.alpha);
+    text(msg.text, msg.x, msg.y);
+    msg.y -= 2;
+    msg.alpha -= 6;
+    if (msg.alpha <= 0) {
+      feedbackMessages.splice(i, 1);
+    }
+  }
+}
+
 function drawGame() {
   background(0);
   drawCircularVisualizer();
   //drawVisualizer();
   drawArrows();
   drawScore();
+  drawCombo();
   drawPercentage();
+  drawFeedback();
   fft.analyze();
 
   generateNotes();
@@ -157,8 +198,10 @@ function drawGame() {
     note.display();
 
     if (note.missed()) {
-      // Deduct points or handle misses as needed
       score -= 50;
+      combo = 0;
+      totalNotes++;
+      feedbackMessages.push({text: "MISS", x: note.x, y: note.y - 20, alpha: 255, col: [255, 80, 80]});
       note.pressed = true;
     }
 
@@ -358,7 +401,8 @@ function drawArrows() {
 
   for (let i = 0; i < 4; i++) {
     let x = xOffset + i * arrowSize;
-    let colorVal = activeArrows[i] ? color(255, 255, 255) : color(0, 0, 0);
+    const dimColors = [color(150, 30, 30), color(30, 150, 30), color(30, 30, 150), color(150, 150, 30)];
+    let colorVal = activeArrows[i] ? color(255, 255, 255) : dimColors[i];
     drawArrow(x, yPos, i, colorVal);
   }
 }
